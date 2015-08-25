@@ -6,7 +6,7 @@ debug = False
 admin_dir_name = "backstrong"
 admin_dir = "/"+admin_dir_name
 
-project_dir = "/Users/codin/git/my_django"
+project_dir = "/Users/codin/git/mydj"
 project_statics_dir = project_dir + "/statics"
 
 # LOGIN_URL = '/account/login'

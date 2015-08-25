@@ -91,9 +91,9 @@ INSTALLED_APPS = (
 
 )
 
-#SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 #SESSION_ENGINE = 'django.contrib.sessions.backends.redis_session'
-SESSION_ENGINE = 'redis_sessions.session'
+# SESSION_ENGINE = 'redis_sessions.session'
 
 SESSION_REDIS_HOST = 'localhost'
 SESSION_REDIS_PORT = 6379
@@ -104,7 +104,7 @@ SESSION_REDIS_PREFIX = 'session'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'haodiao',
+        'NAME': 'mydj',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '/Applications/MAMP/tmp/mysql/mysql.sock',
