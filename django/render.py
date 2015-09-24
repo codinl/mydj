@@ -24,5 +24,5 @@ def render_string(template_name, **kwargs):
 
 
 def render_response(template_name, **kwargs):
-    http_response_kwargs = {'mimetype': kwargs.pop('mimetype', None)}
-    return HttpResponse(render_string(template_name, **kwargs), **http_response_kwargs)
+    # http_response_kwargs = {'mimetype': kwargs.pop('mimetype', None)}
+    return HttpResponse(render_string(template_name, **kwargs))

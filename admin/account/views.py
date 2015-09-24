@@ -9,14 +9,8 @@ from config import admin_dir
 from django.contrib.auth.hashers import make_password
 from django.http import HttpResponse
 from django.shortcuts import redirect
-from django.shortcuts.render import render_response
+from django.render import render_response
 import config
-
-#from django.contrib.auth.decorators import login_required
-#from django.http import HttpResponse
-#from django.views.decorators.cache import never_cache
-#from django.views.decorators.csrf import csrf_protect
-#from django.views.decorators.debug import sensitive_post_parameters
 
 SESSION_KEY = '_auth_admin_id'
 BACKEND_SESSION_KEY = '_auth_admin_backend'
@@ -26,23 +20,24 @@ REDIRECT_FIELD_NAME = 'next'
 #@csrf_protect
 #@never_cache
 def login(request,template_name='admin/admin/login.tpl'):
-#    next_url = request.GET.get("next")
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            pwd = form.cleaned_data['password']
-            admin = authenticate(name=name,password=pwd)
-            if admin:
-                auth_login(request,admin)
-                return redirect(admin_dir)
-            else:
-                form.errors['msg'] = u"用户名或密码错误,请重试。。"
-        else:
-            form.errors['msg'] = u"输入信息格式不合法，请重试"
-    else:
-        form = LoginForm()
-    return render_response(template_name,form=form)
+   # next_url = request.GET.get("next")
+   #  if request.method == 'POST':
+   #      form = LoginForm(request.POST)
+   #      if form.is_valid():
+   #          name = form.cleaned_data['name']
+   #          pwd = form.cleaned_data['password']
+   #          admin = authenticate(name=name, password=pwd)
+   #          if admin:
+   #              auth_login(request, admin)
+   #              return redirect(admin_dir)
+   #          else:
+   #              form.errors['msg'] = u"用户名或密码错误,请重试..."
+   #      else:
+   #          form.errors['msg'] = u"输入信息格式不合法,请重试..."
+   #  else:
+   #      form = LoginForm()
+   #  return render_response(template_name, form=form)
+    return render_response(template_name)
 
 @admin_required
 def logout(request):

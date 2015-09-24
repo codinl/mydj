@@ -130,3 +130,14 @@ DATABASES = {
 #        },
 #    }
 #}
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.tornado.TornadoTemplate',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            # ... some options here ...
+        },
+    },
+]

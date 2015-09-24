@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     
 #     url(r'^home/', include('home.urls')),
 
-#     url(r'^account/', include('account.urls')),
+    url(r'^account/', include('account.urls')),
 
 #     url(r'^pay/callback$', 'mall.views.pay_callback',name="mall_pay_callback"),
 # 

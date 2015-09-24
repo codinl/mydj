@@ -35,7 +35,7 @@ CREATE TABLE `account_admin` (
   `is_active` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `account_admin` WRITE;
 /*!40000 ALTER TABLE `account_admin` DISABLE KEYS */;
@@ -67,7 +67,7 @@ CREATE TABLE `admin_node` (
   KEY `admin_node_52094d6e` (`name`),
   KEY `admin_node_63f17a16` (`parent_id`),
   CONSTRAINT `parent_id_refs_id_e029f399` FOREIGN KEY (`parent_id`) REFERENCES `admin_node` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 LOCK TABLES `admin_node` WRITE;
 /*!40000 ALTER TABLE `admin_node` DISABLE KEYS */;

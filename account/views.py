@@ -248,54 +248,54 @@
 #
 # # #@sensitive_post_parameters()
 # # #@csrf_protect
-# # #@never_cache
-# # def login(request,template='user/login.tpl'):
-# #     next_url = request.GET.get("next")
-# #     if request.method == 'POST':
-# #         form = LoginForm(request.POST)
-# #         if form.is_valid():
-# #             username = form.cleaned_data['username']
-# #             pwd = form.cleaned_data['password']
-# #             user = authenticate(username=username,password=pwd)
-# #             if user:
-# #                 auth_login(request,user)
-# #                 if next_url:
-# #                     response = redirect(next_url)
-# #                 else:
-# #                     response = redirect("/")
-# #                 #设置用户id到cookie里面，有效期6个月
-# # #                response.set_cookie("uid", user.id,max_age=60 * 60 * 24 * 30 * 12)
-# #                 return response
-# #             else:
-# #                 form.errors['msg'] = u"登录失败：用户名或密码错误"
-# #         else:
-# #             form.errors['msg'] = u"输入信息格式不合法，请重试"
-# #     else:
-# #         form = LoginForm()
-# #     return render_response(template,form=form,request=request,next_url=next_url)
-#
+# #@never_cache
+# def login(request,template='user/login.tpl'):
+#     next_url = request.GET.get("next")
+#     if request.method == 'POST':
+#         form = LoginForm(request.POST)
+#         if form.is_valid():
+#             username = form.cleaned_data['username']
+#             pwd = form.cleaned_data['password']
+#             user = authenticate(username=username, password=pwd)
+#             if user:
+#                 auth_login(request,user)
+#                 if next_url:
+#                     response = redirect(next_url)
+#                 else:
+#                     response = redirect("/")
+#                 #设置用户id到cookie里面，有效期6个月
+# #                response.set_cookie("uid", user.id,max_age=60 * 60 * 24 * 30 * 12)
+#                 return response
+#             else:
+#                 form.errors['msg'] = u"登录失败：用户名或密码错误"
+#         else:
+#             form.errors['msg'] = u"输入信息格式不合法，请重试"
+#     else:
+#         form = LoginForm()
+#     return render_response(template, form=form,request=request,next_url=next_url)
+
 # def logout(request):
 #     next_url = request.GET.get('next')
 #     auth_logout(request)
 #     if next_url:
 #         return redirect(next_url)
 #     return market(request)
+
+# @login_required
+# def toinvite(request,template="user.toinvite.tpl"):
+#    user = request.user
+#    return render_response(template,request=request,user=user)
 #
-# # @login_required
-# # def toinvite(request,template="user.toinvite.tpl"):
-# #    user = request.user
-# #    return render_response(template,request=request,user=user)
-# #
-# # def ajax_email_valid(request):
-# #    if request.method == "POST":
-# #        form = AjaxEmailValidForm(request.POST)
-# #        if form.is_valid():
-# #            email = form.cleaned_data['email']
-# #            json = '{"result":"error","message":"该邮箱已被注册，请重新换一个"}'
-# #            if _username_not_exists(email):
-# #                json = '{"result":"ok","message":"该邮箱可以注册"}'
-# #            return HttpResponse(json)
-#
+# def ajax_email_valid(request):
+#    if request.method == "POST":
+#        form = AjaxEmailValidForm(request.POST)
+#        if form.is_valid():
+#            email = form.cleaned_data['email']
+#            json = '{"result":"error","message":"该邮箱已被注册，请重新换一个"}'
+#            if _username_not_exists(email):
+#                json = '{"result":"ok","message":"该邮箱可以注册"}'
+#            return HttpResponse(json)
+
 # def _username_not_exists(username):
 #     ''' username 是否已经注册 没有返回 True '''
 #     try:

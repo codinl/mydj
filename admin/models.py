@@ -3,6 +3,7 @@
 from django.db import models
 import config
 
+
 class Node(models.Model):
     url = models.CharField(max_length=50,unique=True)
     name = models.CharField(max_length=50,db_index=True)
